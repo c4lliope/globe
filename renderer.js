@@ -53,19 +53,6 @@ var polygon = new WorldWind.Polygon(boundaries, polygonAttributes);
 polygon.extrude = true;
 polygonLayer.addRenderable(polygon);
 
-// Add a COLLADA model
-var modelLayer = new WorldWind.RenderableLayer();
-wwd.addLayer(modelLayer);
-
-var position = new WorldWind.Position(10.0, -125.0, 800000.0);
-var config = {dirPath: WorldWind.configuration.baseUrl + 'examples/collada_models/duck/'};
-
-var colladaLoader = new WorldWind.ColladaLoader(position, config);
-colladaLoader.load("duck.dae", function (colladaModel) {
-    colladaModel.scale = 9000;
-    modelLayer.addRenderable(colladaModel);
-});
-
 // Add WMS imagery
 var serviceAddress = "https://neo.sci.gsfc.nasa.gov/wms/wms?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0";
 var layerName = "MOD_LSTD_CLIM_M";
